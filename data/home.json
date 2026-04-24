@@ -1,18 +1,18 @@
 {
   "hero_badge": "Jewelry Retoucher — Since 2012",
-  "hero_title": "Fine Jewelry<br>Retouching",
-  "hero_subtitle": "Cartier-level precision for photographers and luxury brands",
+  "hero_title": "Aymen Badr",
+  "hero_subtitle": "Subtract the Camera.<br class=\"hidden sm:block\" />Keep the Craft.",
   "hero_tagline": "Subtract the Camera. Keep the Craft.",
   "stat_year": "2012",
   "stat_pieces": "500+",
   "stat_turnaround": "24h",
   "stat_satisfaction": "100%",
-  "problem_title": "Most jewelry photos fail the metal and gemstones.",
-  "problem_text": "Harsh reflections. Dull gold. Flat diamonds. The camera flattens luxury. Professional jewelry photo editing restores it.",
+  "problem_title": "Most images fail the metal.",
+  "problem_text": "Harsh reflections. Dull gold. Backgrounds that fight the piece. The camera adds. I remove.",
   "problem_highlight": "Metal stays metal.",
   "about_title": "I'm Aymen.",
   "about_p1": "For over a decade, I've been the quiet hand behind the images of independent jewelers and luxury houses across the Gulf, Europe, and beyond.",
-  "about_p2": "My work is not about filters. It's about hand-painting light and shadow back into metal and stone, pixel by pixel, from my studio to the world.",
+  "about_p2": "My work is not about filters. It's about hand-painting light and shadow back into metal and stone, pixel by pixel, from my studio in Tunisia to the world.",
   "about_p3": "No magic. Just patience, a calibrated eye, and the belief that a photograph should serve the jewelry, not the other way around.",
   "contact_title": "Let's Bring Your Pieces to Light",
   "contact_subtitle": "Tell me about your project. I'll respond within 24 hours.",
@@ -25,6 +25,6 @@
   "body_text_color": "#f5f5f5",
   "heading_font": "Cormorant Garamond, serif",
   "body_font": "Inter, sans-serif",
-  "hero_image": "/image/Grosplans.webp",
-  "logo_image": "/image/social-share.png"
+  "hero_image": "/image/Gros%20plans.png",
+  "about_image": "/image/aymen-profile.jpg"
 }

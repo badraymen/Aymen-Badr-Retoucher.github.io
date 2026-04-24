@@ -16,7 +16,7 @@
   fetch(dataFile)
     .then(function (r) { return r.json(); })
     .then(function (data) {
-      // حقن النصوص باستخدام innerHTML للحفاظ على وسوم HTML
+      // حقن النصوص مع الحفاظ على وسوم HTML
       document.querySelectorAll("[data-cms]").forEach(function (el) {
         var key = el.getAttribute("data-cms");
         if (data[key] !== undefined && data[key] !== null) {
@@ -35,7 +35,7 @@
         }
       });
 
-      // تطبيق ألوان وخطوط CSS
+      // تطبيق ألوان وخطوط CSS (إن وجدت)
       if (data.home_bg_color) {
         document.documentElement.style.setProperty("--bg-color", data.home_bg_color);
       }
