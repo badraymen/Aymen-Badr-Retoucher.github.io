@@ -740,6 +740,12 @@
             border-color: #c9a96e;
         }
 
+        .blog-card img {
+            width: 100%;
+            min-height: 200px;
+            object-fit: cover;
+        }
+
         /* Lightbox */
         .lightbox {
             display: none;
@@ -801,21 +807,45 @@
         }
 
         /* Back to Top Button */
-        #back-to-top {
+        #backToTop {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            width: 48px;
-            height: 48px;
+            width: 44px;
+            height: 44px;
             border: 1px solid #C9A96E;
             background: transparent;
             color: #C9A96E;
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             cursor: pointer;
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-            z-index: 500;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        #backToTop.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #backToTop:hover {
+            background: rgba(201, 169, 110, 0.1);
+            color: #E8E4DF;
+        }
+
+        @media (max-width: 768px) {
+            #backToTop {
+                width: 44px;
+                height: 44px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 1.25rem;
+            }
         }
 
         #back-to-top.show {
@@ -824,6 +854,19 @@
         }
 
         @media (max-width: 768px) {
+            #hero {
+                padding-top: 80px;
+                min-height: 100vh;
+            }
+
+            .hero-bg {
+                aspect-ratio: auto;
+                min-height: 100vh;
+                background-size: cover;
+                background-position: center top;
+            }
+
+            
             #hero {
                 padding-top: 80px;
                 min-height: 100vh;
@@ -1624,7 +1667,7 @@
                 <!-- &#1575;&#1604;&#1605;&#1602;&#1575;&#1604; &#1575;&#1604;&#1571;&#1608;&#1604; -->
                 <article class="blog-card">
                     <a href="blog-post-1.html" class="block">
-                        <img src="image/after1.webp" alt="Commercial vs Artistic retouching" class="w-full h-48 object-cover">
+					<img src="image/after1.webp" alt="Commercial vs Artistic retouching" class="w-full object-cover">
                         <div class="p-6">
                             <span class="text-[10px] tracking-widest uppercase text-atelier-accent">Retouching</span>
                             <h3 class="font-serif text-xl mt-2 mb-3 text-atelier-text hover:text-atelier-accent transition">
@@ -1644,7 +1687,7 @@
                 <!-- &#1575;&#1604;&#1605;&#1602;&#1575;&#1604; &#1575;&#1604;&#1579;&#1575;&#1606;&#1610; -->
                 <article class="blog-card">
                     <a href="blog-post-2.html" class="block">
-                        <img src="image/Sample16.webp" alt="Jewelry retouching pricing guide" class="w-full h-48 object-cover">
+						<img src="image/Sample16.webp" alt="Jewelry retouching pricing guide" class="w-full object-cover">
                         <div class="p-6">
                             <span class="text-[10px] tracking-widest uppercase text-atelier-accent">Pricing</span>
                             <h3 class="font-serif text-xl mt-2 mb-3 text-atelier-text hover:text-atelier-accent transition">
@@ -2162,7 +2205,7 @@
         });
 
         // Back to Top
-        const backToTopBtn = document.getElementById('back-to-top');
+        const backToTopBtn = document.getElementById('backToTop');
 
         window.addEventListener('scroll', () => {
             if (window.scrollY > 500) {
