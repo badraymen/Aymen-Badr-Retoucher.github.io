@@ -19,37 +19,75 @@
 			xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230A0A0A'/%3E%3Ccircle cx='50' cy='50' r='30' fill='%23C9A96E'/%3E%3Ctext x='50' y='65' font-size='40' text-anchor='middle' fill='%230A0A0A' font-family='Georgia' font-weight='bold'%3EAB%3C/text%3E%3C/svg%3E">
 			<script src="https://cdn.tailwindcss.com"></script>
 			<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400;1,6..96,500&display=swap" rel="stylesheet" />
-			<style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background-color: #0A0A0A; color: #E8E4DF; font-family: 'Inter', sans-serif; }
-    .font-serif { font-family: 'Bodoni Moda', 'Cormorant Garamond', serif; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-    .nav-link { position: relative; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: #7A756F; transition: color 0.3s; }
-    .nav-link:hover { color: #C9A96E; }
-    .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: #C9A96E; transition: width 0.4s ease; }
-    .nav-link:hover::after { width: 100%; }
-    .blog-card { background: #111; border: 1px solid #1E1E1E; border-radius: 4px; overflow: hidden; transition: transform 0.3s, border-color 0.3s; }
-    .blog-card:hover { transform: translateY(-4px); border-color: #C9A96E; }
-    .btn { display: inline-block; border: 1px solid #C9A96E; color: #C9A96E; padding: 10px 24px; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.7rem; transition: all 0.3s; }
-    .btn:hover { background-color: #C9A96E; color: #0A0A0A; }
-    @media (max-width: 768px) {
-      .hero-bg { margin-top: 64px; min-height: 300px; }
-    }
-    .hero-bg {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      background-image: url('image/Sample16.jpg');
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-    .hero-bg::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); z-index: 1; }
-    .hero-content { position: relative; z-index: 2; padding: 0 20px; }
-  </style>
+ 			<style>
+     * { margin: 0; padding: 0; box-sizing: border-box; }
+     body { background-color: #0A0A0A; color: #E8E4DF; font-family: 'Inter', sans-serif; }
+     .font-serif { font-family: 'Bodoni Moda', 'Cormorant Garamond', serif; }
+     .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+     .nav-link { position: relative; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: #7A756F; transition: color 0.3s; }
+     .nav-link:hover { color: #C9A96E; }
+     .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: #C9A96E; transition: width 0.4s ease; }
+     .nav-link:hover::after { width: 100%; }
+      .blog-card { background: #111; border: 1px solid #1E1E1E; border-radius: 4px; overflow: hidden; transition: transform 0.3s, border-color 0.3s; }
+      .blog-card:hover { transform: translateY(-4px); border-color: #C9A96E; }
+      .blog-card img { width: 100%; min-height: 200px; object-fit: cover; }
+     .btn { display: inline-block; border: 1px solid #C9A96E; color: #C9A96E; padding: 10px 24px; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.7rem; transition: all 0.3s; }
+     .btn:hover { background-color: #C9A96E; color: #0A0A0A; }
+     @media (max-width: 768px) {
+       .hero-bg { margin-top: 64px; min-height: 300px; }
+     }
+      .hero-bg {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background-image: url('image/Sample16.webp');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+     .hero-bg::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); z-index: 1; }
+     .hero-content { position: relative; z-index: 2; padding: 0 20px; }
+     /* Back to Top Button */
+     #backToTop {
+         position: fixed;
+         bottom: 30px;
+         right: 30px;
+         width: 44px;
+         height: 44px;
+         border: 1px solid #C9A96E;
+         background: transparent;
+         color: #C9A96E;
+         font-size: 1.25rem;
+         cursor: pointer;
+         opacity: 0;
+         visibility: hidden;
+         transition: all 0.3s ease;
+         z-index: 1000;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         border-radius: 50%;
+     }
+     #backToTop.show {
+         opacity: 1;
+         visibility: visible;
+     }
+     #backToTop:hover {
+         background: rgba(201, 169, 110, 0.1);
+         color: #E8E4DF;
+     }
+     @media (max-width: 768px) {
+         #backToTop {
+             width: 44px;
+             height: 44px;
+             bottom: 20px;
+             right: 20px;
+         }
+     }
+   </style>
 		</head>
 		<body class="bg-[#0A0A0A]">
 			<!-- Navigation -->
@@ -96,7 +134,7 @@
 						<!-- Article 1 -->
 						<article class="blog-card">
 							<a href="blog-post-1.html" class="block">
-								<img src="image/after1.jpg" alt="Commercial vs Artistic" class="w-full h-48 object-cover">
+								<img src="image/after1.webp" alt="Commercial vs Artistic" class="w-full object-cover">
 									<div class="p-6">
 										<span class="text-[10px] tracking-widest uppercase text-[#C9A96E]">Retouching</span>
 										<h2 class="font-serif text-xl mt-2 mb-3 text-[#E8E4DF] hover:text-[#C9A96E] transition">Commercial vs. Artistic Retouching: What's the Difference?</h2>
@@ -108,7 +146,7 @@
 							<!-- Article 2 -->
 							<article class="blog-card">
 								<a href="blog-post-2.html" class="block">
-									<img src="image/Sample16.jpg" alt="Jewelry retouching pricing guide" class="w-full h-48 object-cover">
+									<img src="image/Sample16.webp" alt="Jewelry retouching pricing guide" class="w-full object-cover">
 										<div class="p-6">
 											<span class="text-[10px] tracking-widest uppercase text-[#C9A96E]">Pricing</span>
 											<h2 class="font-serif text-xl mt-2 mb-3 text-[#E8E4DF] hover:text-[#C9A96E] transition">How Much Does Jewelry Retouching Cost?</h2>
@@ -121,17 +159,34 @@
 						</div>
 					</section>
 					<!-- Footer -->
-					<footer class="py-8 border-t border-[#1E1E1E] text-center text-[#7A756F] text-sm">
-						<div class="container">
-							<p>© 2025 Aymen Badr — Jewelry Retoucher — Since 2012</p>
-							<p class="mt-2">
-								<a href="https://www.instagram.com/aymenbadr_retoucher" class="hover:text-[#C9A96E]">@aymenbadr_retoucher</a>
-							</p>
-						</div>
-					</footer>
-					<script>
-    const btn = document.getElementById('mobileBtn'), menu = document.getElementById('mobileMenu');
-    if (btn && menu) { let open = false; btn.addEventListener('click', (e) => { e.stopPropagation(); open = !open; menu.classList.toggle('hidden', !open); }); }
-  </script>
+ 					<footer class="py-8 border-t border-[#1E1E1E] text-center text-[#7A756F] text-sm">
+ 						<div class="container">
+ 							<p>© 2025 Aymen Badr — Jewelry Retoucher — Since 2012</p>
+ 							<p class="mt-2">
+ 								<a href="https://www.instagram.com/aymenbadr_retoucher" class="hover:text-[#C9A96E]">@aymenbadr_retoucher</a>
+ 							</p>
+ 						</div>
+ 					</footer>
+
+ 					<!-- Back to Top Button -->
+ 					<button id="backToTop" title="Back to top">↑</button>
+
+ 					<script>
+     const btn = document.getElementById('mobileBtn'), menu = document.getElementById('mobileMenu');
+     if (btn && menu) { let open = false; btn.addEventListener('click', (e) => { e.stopPropagation(); open = !open; menu.classList.toggle('hidden', !open); }); }
+
+     // Back to Top
+     const backToTopBtn = document.getElementById('backToTop');
+     window.addEventListener('scroll', () => {
+         if (window.scrollY > 500) {
+             backToTopBtn.classList.add('show');
+         } else {
+             backToTopBtn.classList.remove('show');
+         }
+     });
+     backToTopBtn.addEventListener('click', () => {
+         window.scrollTo({ top: 0, behavior: 'smooth' });
+     });
+   </script>
 				</body>
 			</html>

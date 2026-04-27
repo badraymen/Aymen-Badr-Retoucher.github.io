@@ -383,7 +383,7 @@
             position: relative;
             width: 100%;
             aspect-ratio: 16 / 9;
-            background-image: url("image/Gros%20plans.png");
+            background-image: url("image/Gros%20plans.webp");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -543,8 +543,9 @@
 
         .giant-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            padding: 20px 0;
         }
 
         .giant-item {
@@ -553,6 +554,13 @@
             background: #111111;
             min-height: 380px;
             border-radius: 6px;
+            border: 1px solid transparent;
+            transition: 0.3s ease;
+        }
+
+        .giant-item:hover {
+            transform: scale(1.02);
+            border-color: #C9A96E;
         }
 
         .giant-item img {
@@ -732,7 +740,146 @@
             border-color: #c9a96e;
         }
 
+        .blog-card img {
+            width: 100%;
+            min-height: 200px;
+            object-fit: cover;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            position: relative;
+            text-align: center;
+        }
+
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
+        .lightbox button {
+            position: absolute;
+            background: none;
+            border: none;
+            color: #C9A96E;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .lightbox button:hover {
+            color: #D9BC8A;
+        }
+
+        #lightbox-close {
+            top: 20px;
+            right: 20px;
+        }
+
+        #lightbox-prev {
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+        }
+
+        #lightbox-next {
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+        }
+
+        /* Back to Top Button */
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 44px;
+            height: 44px;
+            border: 1px solid #C9A96E;
+            background: transparent;
+            color: #C9A96E;
+            font-size: 1.25rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        #backToTop.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #backToTop:hover {
+            background: rgba(201, 169, 110, 0.1);
+            color: #E8E4DF;
+        }
+
         @media (max-width: 768px) {
+            #backToTop {
+                width: 44px;
+                height: 44px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 1.25rem;
+            }
+        }
+
+        #back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @media (max-width: 768px) {
+            #hero {
+                padding-top: 80px;
+                min-height: 100vh;
+            }
+
+            .hero-bg {
+                aspect-ratio: auto;
+                min-height: 100vh;
+                background-size: cover;
+                background-position: center top;
+            }
+
+            
+            #hero {
+                padding-top: 80px;
+                min-height: 100vh;
+            }
+
+            .hero-bg {
+                aspect-ratio: auto;
+                min-height: 100vh;
+                background-size: cover;
+                background-position: center top;
+            }
+
+            
             .giant-grid {
                 grid-template-columns: 1fr;
                 gap: 12px;
@@ -741,6 +888,16 @@
             .span-col-2 {
                 grid-column: span 1;
                 min-height: 280px;
+            }
+
+            #back-to-top {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .lightbox button {
+                font-size: 3rem;
             }
 
             .ba-slider-large,
@@ -999,8 +1156,8 @@
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-24">
                 <div class="reveal">
                     <div class="ba-slider-large">
-                        <img class="ba-img-after" src="image/after1.jpg" alt="After">
-                        <img class="ba-img-before" src="image/before1.jpg" alt="Before">
+                        <img class="ba-img-after" src="image/after1.webp" alt="After">
+                        <img class="ba-img-before" src="image/before1.webp" alt="Before">
                         <div class="ba-slider-line" style="left: 50%">
                             <div class="ba-handle">
                                 <svg width="28" height="28" viewbox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="2">
@@ -1021,8 +1178,8 @@
                 </div>
                 <div class="reveal reveal-delay-1">
                     <div class="ba-slider-large">
-                        <img class="ba-img-after" src="image/after2.jpg" alt="After">
-                        <img class="ba-img-before" src="image/before2.jpg" alt="Before">
+                        <img class="ba-img-after" src="image/after2.webp" alt="After">
+                        <img class="ba-img-before" src="image/before2.webp" alt="Before">
                         <div class="ba-slider-line" style="left: 50%">
                             <div class="ba-handle">
                                 <svg width="28" height="28" viewbox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="2">
@@ -1043,8 +1200,8 @@
                 </div>
                 <div class="reveal reveal-delay-2">
                     <div class="ba-slider-large">
-                        <img class="ba-img-after" src="image/after3.jpg" alt="After">
-                        <img class="ba-img-before" src="image/before3.jpg" alt="Before">
+                        <img class="ba-img-after" src="image/after3.webp" alt="After">
+                        <img class="ba-img-before" src="image/before3.webp" alt="Before">
                         <div class="ba-slider-line" style="left: 50%">
                             <div class="ba-handle">
                                 <svg width="28" height="28" viewbox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="2">
@@ -1077,10 +1234,10 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="reveal crossfade-large">
-                        <img class="crossfade-img active" src="image/before1.jpg">
-                        <img class="crossfade-img" src="image/after1.jpg">
-                        <img class="crossfade-img" src="image/before4.jpg">
-                        <img class="crossfade-img" src="image/After4.jpg">
+                        <img class="crossfade-img active" src="image/before1.webp">
+                        <img class="crossfade-img" src="image/after1.webp">
+                        <img class="crossfade-img" src="image/before4.webp">
+                        <img class="crossfade-img" src="image/After4.webp">
                         <div class="absolute bottom-4 left-0 right-0 text-center">
                             <span class="text-[9px] tracking-superwide uppercase text-white/80 bg-black/50 px-3 py-1 rounded-full">
                                 Morphing
@@ -1088,10 +1245,10 @@
                         </div>
                     </div>
                     <div class="reveal reveal-delay-1 crossfade-large">
-                        <img class="crossfade-img active" src="image/before2.jpg">
-                        <img class="crossfade-img" src="image/after2.jpg">
-                        <img class="crossfade-img" src="image/Before5.jpg">
-                        <img class="crossfade-img" src="image/After5.jpg">
+                        <img class="crossfade-img active" src="image/before2.webp">
+                        <img class="crossfade-img" src="image/after2.webp">
+                        <img class="crossfade-img" src="image/Before5.webp">
+                        <img class="crossfade-img" src="image/After5.webp">
                         <div class="absolute bottom-4 left-0 right-0 text-center">
                             <span class="text-[9px] tracking-superwide uppercase text-white/80 bg-black/50 px-3 py-1 rounded-full">
                                 Revealing
@@ -1099,10 +1256,10 @@
                         </div>
                     </div>
                     <div class="reveal reveal-delay-2 crossfade-large">
-                        <img class="crossfade-img active" src="image/before3.jpg">
-                        <img class="crossfade-img" src="image/after3.jpg">
-                        <img class="crossfade-img" src="image/Before6.jpg">
-                        <img class="crossfade-img" src="image/After6.jpg">
+                        <img class="crossfade-img active" src="image/before3.webp">
+                        <img class="crossfade-img" src="image/after3.webp">
+                        <img class="crossfade-img" src="image/Before6.webp">
+                        <img class="crossfade-img" src="image/After6.webp">
                         <div class="absolute bottom-4 left-0 right-0 text-center">
                             <span class="text-[9px] tracking-superwide uppercase text-white/80 bg-black/50 px-3 py-1 rounded-full">
                                 Transforming
@@ -1124,7 +1281,7 @@
                 </div>
                 <div class="reveal giant-grid">
                     <div class="giant-item span-col-2">
-                        <img src="image/Sample10.jpg" alt="Texture">
+                        <img src="image/Sample10.webp" alt="Texture">
                         <div class="giant-overlay">
                             <p>Texture &amp; Tone</p>
                             <div class="desc">
@@ -1133,28 +1290,28 @@
                         </div>
                     </div>
                     <div class="giant-item">
-                        <img src="image/Sample11.jpg" alt="Light Play">
+                        <img src="image/Sample11.webp" alt="Light Play">
                         <div class="giant-overlay">
                             <p>Light Play</p>
                             <div class="desc">Controlling highlights so the metal breathes, not burns.</div>
                         </div>
                     </div>
                     <div class="giant-item">
-                        <img src="image/Sample12.jpg" alt="Reflection">
+                        <img src="image/Sample12.webp" alt="Reflection">
                         <div class="giant-overlay">
                             <p>Reflection Control</p>
                             <div class="desc">Removing the environment from the metal. Only the piece remains.</div>
                         </div>
                     </div>
                     <div class="giant-item">
-                        <img src="image/Sample13.jpg" alt="Metal">
+                        <img src="image/Sample13.webp" alt="Metal">
                         <div class="giant-overlay">
                             <p>Metal Enhancement</p>
                             <div class="desc">Gold, silver, platinum &mdash; each behaves differently. I treat them that way.</div>
                         </div>
                     </div>
                     <div class="giant-item span-col-2">
-                        <img src="image/Sample14.jpg" alt="Gemstone">
+                        <img src="image/Sample14.webp" alt="Gemstone">
                         <div class="giant-overlay">
                             <p>Gemstone Clarity</p>
                             <div class="desc">
@@ -1163,7 +1320,7 @@
                         </div>
                     </div>
                     <div class="giant-item">
-                        <img src="image/Sample15.jpg" alt="Edge">
+                        <img src="image/Sample15.webp" alt="Edge">
                         <div class="giant-overlay">
                             <p>Edge Precision</p>
                             <div class="desc">
@@ -1172,7 +1329,7 @@
                         </div>
                     </div>
                     <div class="giant-item">
-                        <img src="image/Sample16.jpg" alt="Color">
+                        <img src="image/Sample16.webp" alt="Color">
                         <div class="giant-overlay">
                             <p>Color Accuracy</p>
                             <div class="desc">True-to-life hues. No guessing. No filters.</div>
@@ -1188,16 +1345,26 @@
                         </div>
                     </div>
                     <div class="giant-item">
-                        <img src="image/Sample18.png" alt="Polish">
-                        <div class="giant-overlay">
-                            <p>Final Polish</p>
-                            <div class="desc">The last 5%. The difference between finished and unforgettable.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                        <img src="image/Sample18.webp" alt="Polish">
+                         <div class="giant-overlay">
+                             <p>Final Polish</p>
+                             <div class="desc">The last 5%. The difference between finished and unforgettable.</div>
+                         </div>
+                     </div>
+                 </div>
+
+                 <!-- Lightbox -->
+                 <div id="lightbox" class="lightbox">
+                     <div class="lightbox-content">
+                         <img id="lightbox-img" src="" alt="">
+                         <button id="lightbox-close">&times;</button>
+                         <button id="lightbox-prev">&lt;</button>
+                         <button id="lightbox-next">&gt;</button>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </section>
 
     <section class="py-16 md:py-20 border-y border-atelier-border/40">
         <div class="max-w-6xl mx-auto px-6 md:px-12 lg:px-20">
@@ -1500,7 +1667,7 @@
                 <!-- &#1575;&#1604;&#1605;&#1602;&#1575;&#1604; &#1575;&#1604;&#1571;&#1608;&#1604; -->
                 <article class="blog-card">
                     <a href="blog-post-1.html" class="block">
-                        <img src="image/after1.jpg" alt="Commercial vs Artistic retouching" class="w-full h-48 object-cover">
+					<img src="image/after1.webp" alt="Commercial vs Artistic retouching" class="w-full object-cover">
                         <div class="p-6">
                             <span class="text-[10px] tracking-widest uppercase text-atelier-accent">Retouching</span>
                             <h3 class="font-serif text-xl mt-2 mb-3 text-atelier-text hover:text-atelier-accent transition">
@@ -1520,7 +1687,7 @@
                 <!-- &#1575;&#1604;&#1605;&#1602;&#1575;&#1604; &#1575;&#1604;&#1579;&#1575;&#1606;&#1610; -->
                 <article class="blog-card">
                     <a href="blog-post-2.html" class="block">
-                        <img src="image/Sample16.jpg" alt="Jewelry retouching pricing guide" class="w-full h-48 object-cover">
+						<img src="image/Sample16.webp" alt="Jewelry retouching pricing guide" class="w-full object-cover">
                         <div class="p-6">
                             <span class="text-[10px] tracking-widest uppercase text-atelier-accent">Pricing</span>
                             <h3 class="font-serif text-xl mt-2 mb-3 text-atelier-text hover:text-atelier-accent transition">
@@ -1550,7 +1717,7 @@
         <div class="max-w-6xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div class="reveal about-image">
-                    <img src="image/aymen-profile.jpg" alt="Aymen Badr" class="rounded-xl border border-atelier-border/40" onerror="this.src = 'https://placehold.co/600x800/111111/C9A96E?text=Aymen+Badr'" data-cms-img="about_image">
+                    <img src="image/aymen-profile.webp" alt="Aymen Badr" class="rounded-xl border border-atelier-border/40" onerror="this.src = 'https://placehold.co/600x800/111111/C9A96E?text=Aymen+Badr'" data-cms-img="about_image">
                 </div>
                 <div class="reveal reveal-delay-1">
                     <span class="text-[10px] md:text-xs tracking-ultrawide uppercase text-atelier-accent">Behind the Lens</span>
@@ -1806,7 +1973,15 @@
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button id="back-to-top">↑</button>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top">↑</button>
+
     <script>
+
+
         const cursor = document.getElementById("cursor");
         if (cursor && window.innerWidth >= 1024) {
             let cursorX = 0,
@@ -1976,7 +2151,82 @@
                 localStorage.setItem("theme", bodyRoot.classList.contains("light-mode") ? "light" : "dark");
             });
         }
-    </script>
+
+        // Lightbox
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+        const galleryImgs = document.querySelectorAll('.giant-grid img');
+        let currentIndex = 0;
+
+        galleryImgs.forEach((img, index) => {
+            img.addEventListener('click', () => {
+                currentIndex = index;
+                openLightbox(img.src);
+            });
+        });
+
+        function openLightbox(src) {
+            lightboxImg.src = src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function showPrev() {
+            currentIndex = (currentIndex - 1 + galleryImgs.length) % galleryImgs.length;
+            lightboxImg.src = galleryImgs[currentIndex].src;
+        }
+
+        function showNext() {
+            currentIndex = (currentIndex + 1) % galleryImgs.length;
+            lightboxImg.src = galleryImgs[currentIndex].src;
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxPrev.addEventListener('click', showPrev);
+        lightboxNext.addEventListener('click', showNext);
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') showPrev();
+            if (e.key === 'ArrowRight') showNext();
+        });
+
+        // Back to Top
+        const backToTopBtn = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });</script>
+        });</script>
 </body>
 
 </html>
+
+
+
+
+
+
+
+
